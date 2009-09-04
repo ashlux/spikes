@@ -1,0 +1,77 @@
+<html>
+<head>
+    <title>ext example</title>
+
+
+    <link rel="stylesheet" href="js/ext/resources/css/ext-all.css" type="text/css"/>
+
+    <script type="text/javascript" src="js/ext/adapter/ext/ext-base.js"></script>
+    <script type="text/javascript" src="js/ext/ext-all.js"></script>
+</head>
+
+<body>
+
+<script>
+    Ext.onReady(function()
+    {
+        new Ext.form.ComboBox({
+            typeAhead: true,
+            triggerAction: 'all',
+            transform:'number',
+            width:135,
+            forceSelection:true,
+            emptyText:'Select a number...',
+            allowBlank:true,
+            tpl:'<tpl for=".">' + '<div class="x-combo-list-item">' + '{text}&nbsp;' + '</div></tpl>'
+        });
+    });
+
+    function sub()
+    {
+        alert("Selected values: [" + document.form.numberorig.value + "] in original combo box and [" +
+              document.form.number.value + "] in the transformed combo box.");
+    }
+</script>
+
+<form action="#" name="form" id="form">
+    <div style="padding:15px;">
+
+        <label for="numberorig">Number: </label>
+
+        <select id="numberorig" name="numberorig">
+            <option/>
+            <option value="1">ONE</option>
+            <option value="2">TWO</option>
+            <option value="3">THREE</option>
+            <option value="4">FOUR</option>
+            <option value="5">FIVE</option>
+            <option value="6">SIX</option>
+        </select>
+
+        <br clear="all"/>
+        <br clear="all"/>
+
+
+            <label for="number">Number: </label>
+
+            <select id="number" name="number" style="display:none;">
+                <option/>
+                <option value="1">ONE</option>
+                <option value="2">TWO</option>
+                <option value="3">THREE</option>
+                <option value="4">FOUR</option>
+                <option value="5">FIVE</option>
+                <option value="6">SIX</option>
+            </select>
+
+    </div>
+
+    <br clear="all"/>
+    <br clear="all"/>
+
+    <input type="button" onClick="sub()" value="SUBMIT"/>
+    </div>
+</form>
+
+</body>
+</html>
